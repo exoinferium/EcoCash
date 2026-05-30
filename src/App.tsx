@@ -285,21 +285,21 @@ export function App() {
       {nav}
       {page === 'home' &&
         pageShell(
-          'Turn verified plastic into value with nearby exchange locations.',
-          'Log in, see nearby collection points on a map, run an AI estimate, and redeem points for surplus food. Points never expire.',
+          'Turn litter into livelihood and waste into opportunity',
+          'Log in, find nearby locations, and redeem points.',
           <section className="info-grid">
             <article className="card feature-card">
-              <h2>How it works</h2>
+              <h2>Steps</h2>
               <ol className="steps">
-                <li>Log in to your account.</li>
-                <li>Check the AI estimate page.</li>
-                <li>See nearby locations on the map.</li>
-                <li>Redeem points or generate a code.</li>
+                <li>Log in</li>
+                <li>Estimate points</li>
+                <li>View nearby locations</li>
+                <li>Redeem points</li>
               </ol>
             </article>
             <article className="card feature-card">
-              <h2>Information sheet</h2>
-              <p>Points never expire. Plastic is worth 10 points per pound for the MVP.</p>
+              <h2>Information</h2>
+              <p>Points never expire. Plastic is worth 10 points per pound.</p>
               <button className="btn btn-primary" onClick={state.loggedIn ? logout : login}>
                 {state.loggedIn ? 'Logout' : 'Log in'}
               </button>
@@ -309,12 +309,12 @@ export function App() {
 
       {page === 'login' &&
         pageShell(
-          'Use Face ID to unlock your profile, points, and nearby exchange map.',
-          'Face ID now uses the webcam preview so the sign-in flow feels like a real camera-based scan.',
+          'Use Face ID to log into your profile.',
+          'Face ID uses the webcam preview.',
           <section className="card form-card">
             <div className="face-id-shell">
               <label className="name-field">
-                Placeholder name
+                Name
                 <input
                   value={state.userName}
                   onChange={(event) => setState((current) => ({ ...current, userName: event.target.value }))}
@@ -322,8 +322,9 @@ export function App() {
                 />
               </label>
               <section className="tos-panel">
-                <h2>Terms of Service</h2>
+                <h2>Agreement</h2>
                 <div className="tos-copy">
+                  <p><strong>Privacy Policy</strong></p>
                   <p>EcoCash Incorporated provides waste collection, processing, valuation, and compensation services through infrastructure and digital systems. Users may deposit eligible waste materials and receive compensation based on verified weight and material classification. Users are required to register using a valid legal name and partake in biometric verification. All additional personal information including age, contact information and demographic details are strictly optional. Users are responsible for maintaining the confidentiality of their account credentials and all activities under their account. Compensation is calculated based on verified material weight and category and may be adjusted according to operational conditions and market value fluctuations.</p>
                   <p>Payments may be stored within a user account or withdrawn at the user’s discretion but money may never be deposited. EcoCash Incorporated does not charge mandatory fees for account creation or withdrawals unless explicitly stated. Users agree not to manipulate, falsify, or interfere with waste processing systems or engage in fraudulent or unlawful activity under their respective country’s legislation. EcoCash Incorporated reserves the right to suspend or terminate access to services in cases of suspected misuse or violation of these Terms. EcoCash Incorporated shall not be liable for indirect damages, system interruptions, or losses arising from third-party financial systems or user misuse.</p>
                   <p><strong>Privacy Policy</strong></p>
@@ -373,8 +374,8 @@ export function App() {
 
       {page === 'dashboard' &&
         pageShell(
-          'Your wallet, recent activity, and points trend in one place.',
-          'The dashboard stays live with a history graph, activity log, and current balance.',
+          'Dashboard of your points over time',
+          'The dashboard displays a live graph of your points over time.',
           <section className="dashboard-grid">
             <article className="card stats-card">
               <p className="eyebrow">Wallet</p>
@@ -400,7 +401,7 @@ export function App() {
             </article>
             <article className="card chart-card">
               <h2>Points history</h2>
-              <p className="status-line">A simple trend line shows how points change over time.</p>
+              <p className="status-line">Line graph of points over time.</p>
               <div className="history-chart-wrap">{drawHistory(state.pointsHistory)}</div>
             </article>
           </section>,
@@ -408,8 +409,8 @@ export function App() {
 
       {page === 'profile' &&
         pageShell(
-          'Manage your profile, role, and login identity.',
-          'The profile page makes it clear who is signed in and gives the user one place to update account details.',
+          'Manage your profile.',
+          'The profile page allows the user to update their account details.',
           <section className="card profile-card">
             <div className="profile-grid">
               <article className="mini-card">
@@ -435,8 +436,8 @@ export function App() {
 
       {page === 'map' &&
         pageShell(
-          'Find exchange points on the map.',
-          'Use your current location or a fallback demo coordinate to find nearby drop-off and surplus food spots.',
+          'Find locations near you.',
+          'Use your location to find nearby exchange buildings.',
           <section className="map-layout">
             <article className="card map-card">
               <div className="map-toolbar">
@@ -475,8 +476,8 @@ export function App() {
 
       {page === 'ai' &&
         pageShell(
-          'Estimate how much the material should be exchanged for.',
-          'This is the AI estimate step. It gives a rough value before the user heads to a location.',
+          'Estimate how much trash should be exchanged for points.',
+          'This estimate gives a rough value before the user exchanges it.',
           <section className="card form-card">
             <form
               className="stack-form"
@@ -518,8 +519,8 @@ export function App() {
 
       {page === 'redeem' &&
         pageShell(
-          'Withdraw points with a code for nearby surplus food marketplaces.',
-          'When the user wants to redeem, they can generate a code and present it at a partner location.',
+          'Exchange points for credits.',
+          'Whenever the user wants to redeem their points, they can generate a code and present it at a partner location.',
           <section className="card redeem-card">
             <div className="redeem-summary">
               <div>
@@ -544,8 +545,7 @@ export function App() {
         <div className="footer-summary">
           <BadgeInfo size={18} />
           <p>
-            Points never expire. EcoCash keeps logout visible here so users can end their session
-            from the information sheet at any time.
+            TurnerHacks 2026
           </p>
         </div>
         <button className="btn btn-secondary" onClick={state.loggedIn ? logout : login}>
